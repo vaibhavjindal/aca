@@ -1,5 +1,3 @@
-names=["dd", "dd(1)", "dd(2)", "dd", "dd(1)",  "dd(1)(2)", "dd(1)(1)",  "dd",  "dd(1)"]
-
 def FileNaming(names):
 	output=[]
 	for i in range(len(names)):
@@ -13,4 +11,3 @@ def FileNaming(names):
 					break
 	return output
 
-print FileNaming(names)
