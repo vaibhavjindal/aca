@@ -17,7 +17,7 @@ for i in range(100000):
 weights=np.full((101,1),25,dtype="float_")
 
 #loop for number of iterations on the training set
-for i in range(100):
+for i in range(10):
 	cost=np.full((1,1),0,dtype="float64")
 	for j in range(100000):
 		err= np.matmul(data_2[j],weights)-y_i[j]
