@@ -1,5 +1,5 @@
 import numpy as np 
-
+import matplotlib.pyplot as plt
 data_1 = np.genfromtxt('train_1.csv', delimiter=',')#original csv
 one_arr=np.ones((100000,1))
 
@@ -15,14 +15,22 @@ for i in range(100000):
 
 #weights
 weights=np.full((101,1),25,dtype="float_")
-
+it=np.zeros((1,5))
+c=np.zeros((1,5))
 #loop for number of iterations on the training set
-for i in range(10):
+for i in range(5):
 	cost=np.full((1,1),0,dtype="float64")
 	for j in range(100000):
 		err= np.matmul(data_2[j],weights)-y_i[j]
-		#cost=cost+np.matmul(err,err)
+		cost=cost+np.matmul(err,err)
 		for y in range(101):
 			weights[y][0]= weights[y][0]-0.0000000000001*(err[0]*data_2[j][y])
+	it[0][i]=i+1
+	c[0][i]=cost
 	print i
-print weights
+print it[0]
+print c[0]
+plt.plot(it[0],np.log10(c[0]))
+plt.show()
+
+#print weights
